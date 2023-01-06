@@ -40,9 +40,12 @@ def train(dataset_path, train_conf, model_path, add_timestamp):
     # TODO: CODE HERE
     # instantiate a LocalTextCategorizationDataset, use embed method from preprocessing module for preprocess_text param
     # use train_conf for other needed params
-    dataset = LocalTextCategorizationDataset(dataset_path, train_conf['batch_size'],
+    dataset = LocalTextCategorizationDataset(filename=dataset_path,
+                                             batch_size=train_conf['batch_size'],
+                                             train_ratio=0.8,
                                              min_samples_per_label=train_conf['min_samples_per_label'],
-                                             preprocess_text=embed)
+                                             preprocess_text=embed
+                                             )
 
     logger.info(dataset)
     # TODO: CODE HERE
